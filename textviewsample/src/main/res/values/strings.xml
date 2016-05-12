@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">TextViewDemo</string>
+    <string name="textIsSelectable">android:textIsSelectable</string>
+    <string name="autoLink">android:autoLink 163@gmail.com</string>
+    <string name="drawableEnd">android:drawableEnd</string>
+    <string name="drawableTint">android:drawableTint</string>
+    <string name="elegantTextHeight">android:elegantTextHeight</string>
+    <string name="fontFamily">android:fontFamily</string>
+    <string name="ellipsize">android:ellipsize android:ellipsize android:ellipsize android:ellipsize</string>
+    <string name="hint">android:hint</string>
+    <string name="letterSpacing">android:letterSpacing</string>
+    <string name="lineSpacingExtra">android:lineSpacingExtra android:lineSpacingExtra android:lineSpacingExtra android:lineSpacingExtra</string>
+    <string name="lineSpacingMultiplier">android:lineSpacingMultiplier android:lineSpacingMultiplier android:lineSpacingMultiplier android:lineSpacingMultiplier</string>
+    <string name="lines">android:lines android:lines android:lines android:lines android:lines android:lines</string>
+    <string name="shadow">android:shadow </string>
+    <string name="textAllCaps">android:textAllCaps </string>
+    <string name="textAppearance">android:textAppearance </string>
+    <string name="textScaleX">android:textScaleX </string>
+    <string name="textStyle">android:textStyle </string>
+    <string name="typeface">android:typeface </string>
+</resources>

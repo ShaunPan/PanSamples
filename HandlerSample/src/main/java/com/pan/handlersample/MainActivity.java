@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
 
     private MyHandler myHandler = new MyHandler(this);
-
+    private Handler mHandler = new Handler();
     //报内存溢出警告的handler
     private Handler handler = new Handler() {
         @Override
@@ -33,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         sendMessageToHandler();
+
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.i(TAG,"post delay");
+            }
+        },6*1000*1000);
+
+        finish();
     }
 
     /**
