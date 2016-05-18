@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TextViewDemo</string>
     <string name="textIsSelectable">android:textIsSelectable</string>
-    <string name="autoLink">android:autoLink 163@gmail.com</string>
+    <string name="autoLink">android:autoLink 15279796666</string>
     <string name="drawableEnd">android:drawableEnd</string>
     <string name="drawableTint">android:drawableTint</string>
     <string name="elegantTextHeight">android:elegantTextHeight</string>
@@ -13,7 +13,7 @@
     <string name="lineSpacingMultiplier">android:lineSpacingMultiplier android:lineSpacingMultiplier android:lineSpacingMultiplier android:lineSpacingMultiplier</string>
     <string name="lines">android:lines android:lines android:lines android:lines android:lines android:lines</string>
     <string name="shadow">android:shadow </string>
-    <string name="textAllCaps">android:textAllCaps </string>
+    <string name="textAllCaps">你好android:textAllCaps </string>
     <string name="textAppearance">android:textAppearance </string>
     <string name="textScaleX">android:textScaleX </string>
     <string name="textStyle">android:textStyle </string>
