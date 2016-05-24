@@ -4,4 +4,5 @@
     <string name="Button_2">Button_2</string>
     <string name="Button_bg">Button_bg</string>
     <string name="Button_custom">Button_custom</string>
+    <string name="Button_click">Button_click</string>
 </resources>

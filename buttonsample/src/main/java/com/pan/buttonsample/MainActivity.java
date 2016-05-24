@@ -18,7 +18,19 @@ public class MainActivity extends AppCompatActivity {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(MainActivity.this, R.string.Button_1, Toast.LENGTH_SHORT).show();
+                    if (ButtonUtil.isMultiClick()) {
+                        Toast.makeText(MainActivity.this, R.string.Button_1, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+
+        Button buttonClick = (Button) findViewById(R.id.btn_click);
+        if (buttonClick != null) {
+            buttonClick.setOnClickListener(new OnNoMultiClickListener() {
+                @Override
+                public void onNoMultiClick(View v) {
+                    Toast.makeText(MainActivity.this, R.string.Button_click, Toast.LENGTH_SHORT).show();
                 }
             });
         }
