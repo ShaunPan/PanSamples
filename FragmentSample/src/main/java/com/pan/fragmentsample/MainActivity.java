@@ -14,13 +14,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "Activity onCreate");
         setContentView(R.layout.activity_main);
-
+        addFragment(MainFragment.newInstance());
 
     }
 
-    public void addFragment(Fragment fragment){
+    public void addFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fl_container,fragment,TAG)
+                .replace(R.id.fl_container, fragment, TAG)
                 .addToBackStack(null)
                 .commit();
     }
