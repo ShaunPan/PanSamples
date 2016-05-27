@@ -58,7 +58,8 @@ public class MainFragment extends ListFragment {
                 addFragment(OperationFragment.newInstance());
                 break;
             case 1:
-
+                TestDialogFragment testDialogFragment = new TestDialogFragment();
+                testDialogFragment.show(getFragmentManager(),"TestDialogFragment");
                 break;
             default:
                 break;

@@ -4,8 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TestDialogFragment.OnConfirmClickListener {
 
     public static final String TAG = "LifeCycle";
 
@@ -53,5 +54,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "Activity onDestroy");
+    }
+
+    @Override
+    public void onConfirmClick(String userName, String password) {
+        Toast.makeText(this, "接收到的信息：" + userName + "," + password, Toast.LENGTH_SHORT).show();
     }
 }
