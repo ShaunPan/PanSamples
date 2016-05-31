@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements TestDialogFragmen
     public void addFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fl_container, fragment, TAG)
-                .addToBackStack(null)
                 .commit();
     }
 
