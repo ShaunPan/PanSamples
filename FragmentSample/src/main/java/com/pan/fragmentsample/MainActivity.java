@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity implements TestDialogFragmen
         Log.i(TAG, "Activity onCreate");
         setContentView(R.layout.activity_main);
         addFragment(MainFragment.newInstance());
-
     }
 
     public void addFragment(Fragment fragment) {

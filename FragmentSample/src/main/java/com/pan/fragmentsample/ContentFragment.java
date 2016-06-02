@@ -37,7 +37,7 @@ public class ContentFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //当一个Fragment启动另外一个Fragment时，setTargetFragment()设置该方法后，
+                //当一个Fragment启动另外一个Fragment时，设置setTargetFragment()方法后，
                 //目标Fragment可以将数据回调到启动的Fragment
                 editFragment.setTargetFragment(ContentFragment.this, REQUEST_CODE);
 

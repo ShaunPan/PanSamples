@@ -38,6 +38,8 @@ public class MainFragment extends ListFragment {
         list = new ArrayList<>();
         list.add("ListFragment");
         list.add("DialogFragment");
+        list.add("DataTransferWithInterface");
+        list.add("DataTransferInDifferentFragment");
         list.add("DataCallbackInSameActivity");
         list.add("DataCallbackInDifferentActivity");
     }
@@ -69,11 +71,20 @@ public class MainFragment extends ListFragment {
                 testDialogFragment.show(getFragmentManager(), "TestDialogFragment");
                 break;
             case 2:
+
+                break;
+            case 3:
+                Bundle bundle = new Bundle();
+                bundle.putString("DataTransferFragment", "DataTransferInDifferentFragment");
+                DataTransferFragment fragment = DataTransferFragment.newInstance(bundle);
+                fragment.show(getFragmentManager(),"DataTransferFragment");
+                break;
+            case 4:
                 //同一个Activity内Fragment之间的数据回调
                 intent = new Intent(getActivity(), SecondActivity.class);
                 startActivity(intent);
                 break;
-            case 3:
+            case 5:
                 //不同的Activity内Fragment之间的数据回调
                 intent = new Intent(getActivity(), SecondActivity.class);
                 startActivityForResult(intent, REQUEST_CODE);
