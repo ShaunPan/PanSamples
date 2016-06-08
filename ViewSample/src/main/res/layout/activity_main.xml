@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.pan.viewsample.MainActivity">
+
+    <TextView
+        android:id="@+id/tv_xml_alpha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alpha XML Animation"/>
+
+    <TextView
+        android:id="@+id/tv_java_alpha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alpha JAVA Animation"/>
+
+    <TextView
+        android:id="@+id/tv_xml_scale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scale XML Animation"/>
+
+    <TextView
+        android:id="@+id/tv_java_scale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scale JAVA Animation"/>
+
+    <TextView
+        android:id="@+id/tv_xml_rotate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rotate XML Animation"/>
+
+    <TextView
+        android:id="@+id/tv_java_rotate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rotate JAVA Animation"/>
+
+    <TextView
+        android:id="@+id/tv_xml_translate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Translate XML Animation"/>
+
+    <TextView
+        android:id="@+id/tv_java_translate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Translate JAVA Animation"/>
+
+    <TextView
+        android:id="@+id/tv_set_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Animation"/>
+
+
+</LinearLayout>
