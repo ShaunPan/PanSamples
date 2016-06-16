@@ -65,5 +65,33 @@
         android:layout_height="wrap_content"
         android:text="Set Animation"/>
 
+    <ImageButton
+        android:id="@+id/ib_frame_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frame_anim"
+        />
+
+    <Button
+        android:id="@+id/btn_layout_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LayoutAnimation"
+        />
+
+    <Button
+        android:id="@+id/btn_offset_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="offsetButton"
+        />
+
+    <Button
+        android:id="@+id/btn_value_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="valueButton"
+        />
+
 
 </LinearLayout>
