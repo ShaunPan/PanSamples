@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.pan.viewsample.MainActivity">
 
@@ -12,18 +12,23 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_margin="20dp"
+        android:background="#123456"
         android:padding="40dp"
         app:rect_color="#654321"
-        android:background="#123456"
         />
 
-    <com.pan.viewsample.RectView
+    <com.pan.viewsample.DialView
+        android:id="@+id/dialView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        />
+
+    <SeekBar
+        android:id="@+id/seekBar"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_margin="20dp"
-        android:padding="40dp"
-        android:background="#123456"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="0"
         />
-
 
 </LinearLayout>
