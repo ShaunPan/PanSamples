@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Title</string>
+    <string name="sub_title">SubTitle</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_share">Share</string>
+    <string name="action_more">More</string>
+    <string name="next">Next</string>
+</resources>
