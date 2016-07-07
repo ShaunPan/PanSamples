@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -22,6 +23,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TextView rightTextView;
     private TextView toolbarTitle;
+    private Toolbar.OnMenuItemClickListener mOnMenuItemClickListener;
+    private static final int INVALID_MENU = -1;
+    private int menuResId = INVALID_MENU;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,29 +48,31 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         } else if (layoutResID != R.layout.activity_base) {
             //添加新的布局
-            View addView = LayoutInflater.from(this).inflate(layoutResID, null);
-            contentView.addView(addView, new ViewGroup.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+            View view = LayoutInflater.from(this).inflate(layoutResID, null);
+            contentView.addView(view, new ViewGroup.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 
-            initView();
+            initView(view);
             initListener();
 
         }
 
-        //不要改变下面三者的顺序
-        beforeSetActionBar();
-        setActionBar();
-        afterSettingActionBar();
+        defaultToolbarSetting();
+        setToolBar();
     }
 
-    private void beforeSetActionBar() {
+    public abstract void initListener();
+
+    public abstract void initView(View addView);
+
+
+    /**
+     * Toolbar默认设置
+     */
+    private void defaultToolbarSetting() {
         toolbar.setNavigationIcon(R.mipmap.ic_arrow_back_white_48pt_2x);
         toolbarTitle.setText(R.string.app_name);
         rightTextView.setText(R.string.action_more);
-    }
 
-    public abstract void setActionBar();
-
-    private void afterSettingActionBar() {
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             //隐藏标题栏
@@ -78,18 +84,13 @@ public abstract class BaseActivity extends AppCompatActivity {
                 finish();
             }
         });
-        //        toolbar.setOnMenuItemClickListener(onMenuItemClickListener);
+
+
 
     }
 
+    public abstract void setToolBar();
 
-    private void initListener() {
-
-    }
-
-    private void initView() {
-
-    }
 
     public Toolbar getToolbar() {
         return toolbar;
@@ -99,9 +100,82 @@ public abstract class BaseActivity extends AppCompatActivity {
         return R.layout.activity_base;
     }
 
-    protected int getFragmentContentId() {
-        return R.id.layout_content;
+    /**
+     * 设置toolbar右侧图片
+     *
+     * @param resId
+     *         资源Id
+     */
+    public void setRight(int resId) {
+        rightTextView.setCompoundDrawablesWithIntrinsicBounds(0, 0, resId, 0);
+    }
+
+    /**
+     * 设置toolbar右侧文字
+     *
+     * @param rightStr
+     *         字符串
+     */
+    public void setRight(String rightStr) {
+        rightTextView.setText(rightStr);
+    }
+
+    /**
+     * 设置toolbar右侧图片及点击事件
+     *
+     * @param resId
+     *         图片资源Id
+     * @param clickListener
+     *         事件监听
+     */
+    public void setRight(int resId, View.OnClickListener clickListener) {
+        rightTextView.setCompoundDrawablesWithIntrinsicBounds(0, 0, resId, 0);
+        rightTextView.setOnClickListener(clickListener);
+    }
+
+    /**
+     * 设置menu及条目点击事件的监听
+     *
+     * @param menuResId
+     *         menu资源id
+     * @param menuItemClickListener
+     *         条目事件监听
+     */
+    public void setMenu(int menuResId, Toolbar.OnMenuItemClickListener menuItemClickListener) {
+        this.menuResId = menuResId;
+        setOnMenuItemClickListener(menuItemClickListener);
+    }
+
+    /**
+     * 设置Navigation
+     *
+     * @param resId
+     *         资源Id
+     * @param onClickListener
+     *         点击事件
+     */
+    public void setNavigation(int resId, View.OnClickListener onClickListener) {
+        toolbar.setNavigationIcon(resId);
+        toolbar.setNavigationOnClickListener(onClickListener);
     }
 
 
+    /**
+     * 设置监听
+     *
+     * @param menuItemClickListener
+     *         设置条目监听器
+     */
+    private void setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener menuItemClickListener) {
+        this.mOnMenuItemClickListener = menuItemClickListener;
+        toolbar.setOnMenuItemClickListener(mOnMenuItemClickListener);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (menuResId != INVALID_MENU) {
+            getMenuInflater().inflate(menuResId, menu);
+        }
+        return true;
+    }
 }
