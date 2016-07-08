@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_container_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -20,7 +19,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="#FFFFFF"
-            android:textSize="17sp"/>
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/tv_right"
@@ -30,8 +29,9 @@
             android:background="?attr/actionBarItemBackground"
             android:clickable="true"
             android:gravity="center"
+            android:padding="10dp"
             android:textColor="#FFFFFF"
-            tools:text="edit"/>
+            tools:text="edit" />
 
     </android.support.v7.widget.Toolbar>
 
@@ -39,7 +39,7 @@
         android:id="@+id/layout_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"/>
+        android:orientation="vertical" />
 
 
 </LinearLayout>

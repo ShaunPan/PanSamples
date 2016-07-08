@@ -19,12 +19,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         initToolbar();
     }
 
     public void onNextClicked(View view) {
         Intent intent = new Intent(this, NextActivity.class);
+        startActivity(intent);
+    }
+
+    public void onOtherClicked(View view) {
+        Intent intent = new Intent(this, OtherActivity.class);
         startActivity(intent);
     }
 

@@ -16,10 +16,11 @@ import android.widget.TextView;
  * Author: Pan
  * Date:   2016/7/6
  * Description:
+ * 封装Toolbar的BaseActivity
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
-    private LinearLayout contentView;
+    private LinearLayout containerView;
     private Toolbar toolbar;
     private TextView rightTextView;
     private TextView toolbarTitle;
@@ -38,10 +39,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void setContentView(@LayoutRes int layoutResID) {
 
         //默认布局
-        if (contentView == null && layoutResID == R.layout.activity_base) {
+        if (containerView == null && layoutResID == R.layout.activity_base) {
             super.setContentView(layoutResID);
 
-            contentView = (LinearLayout) findViewById(R.id.layout_content);
+            containerView = (LinearLayout) findViewById(R.id.ll_container_view);
             toolbar = (Toolbar) findViewById(R.id.toolbar);
             rightTextView = (TextView) findViewById(R.id.tv_right);
             toolbarTitle = (TextView) findViewById(R.id.toolbar_title);
@@ -49,7 +50,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         } else if (layoutResID != R.layout.activity_base) {
             //添加新的布局
             View view = LayoutInflater.from(this).inflate(layoutResID, null);
-            contentView.addView(view, new ViewGroup.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+            containerView.addView(view, new ViewGroup.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 
             initView(view);
             initListener();
@@ -69,22 +70,25 @@ public abstract class BaseActivity extends AppCompatActivity {
      * Toolbar默认设置
      */
     private void defaultToolbarSetting() {
+
         toolbar.setNavigationIcon(R.mipmap.ic_arrow_back_white_48pt_2x);
         toolbarTitle.setText(R.string.app_name);
-        rightTextView.setText(R.string.action_more);
+//        rightTextView.setText(R.string.action_more);
 
         setSupportActionBar(toolbar);
+
         if (getSupportActionBar() != null) {
-            //隐藏标题栏
+            // 隐藏标题栏
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
+
+        // Navigation的默认点击事件
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
 
 
     }
