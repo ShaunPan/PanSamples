@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -37,33 +36,33 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
+        super.setContentView(layoutResID);
 
         //默认布局
         if (containerView == null && layoutResID == R.layout.activity_base) {
-            super.setContentView(layoutResID);
 
             containerView = (LinearLayout) findViewById(R.id.ll_container_view);
             toolbar = (Toolbar) findViewById(R.id.toolbar);
             rightTextView = (TextView) findViewById(R.id.tv_right);
             toolbarTitle = (TextView) findViewById(R.id.toolbar_title);
 
+            defaultToolbarSetting();
+            setToolBar();
+
         } else if (layoutResID != R.layout.activity_base) {
+
             //添加新的布局
             View view = LayoutInflater.from(this).inflate(layoutResID, null);
-            containerView.addView(view, new ViewGroup.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 
             initView(view);
             initListener();
 
         }
-
-        defaultToolbarSetting();
-        setToolBar();
     }
 
     public abstract void initListener();
 
-    public abstract void initView(View addView);
+    public abstract void initView(View view);
 
 
     /**
@@ -73,12 +72,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         toolbar.setNavigationIcon(R.mipmap.ic_arrow_back_white_48pt_2x);
         toolbarTitle.setText(R.string.app_name);
-//        rightTextView.setText(R.string.action_more);
 
         setSupportActionBar(toolbar);
 
         if (getSupportActionBar() != null) {
-            // 隐藏标题栏
+            // 隐藏标题
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
 
@@ -89,11 +87,11 @@ public abstract class BaseActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
 
-    public abstract void setToolBar();
+    public void setToolBar() {
+
+    }
 
 
     public Toolbar getToolbar() {

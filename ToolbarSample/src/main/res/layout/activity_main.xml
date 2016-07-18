@@ -25,4 +25,10 @@
         android:onClick="onOtherClicked"
         android:text="@string/other" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onThirdClicked"
+        android:text="@string/third" />
+
 </LinearLayout>
